@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools >= 61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deer-guided-af3"
+version = "1.0.0"
+requires-python = ">=3.10"
+description = "DEER-guided conformational sampling for AlphaFold3-architecture structure predictors"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+    {name = "Shosuke Suzuki"},
+]
+dependencies = [
+    "numpy",
+    "torch",
+    "biotite",
+]
+
+[project.optional-dependencies]
+clouds = ["chilife"]
+dev = ["ruff"]
+
+[project.scripts]
+deer-guide = "deer_guided_af3.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/suzuki-2001/deer-guided-af3"
+Issues = "https://github.com/suzuki-2001/deer-guided-af3/issues"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["deer_guided_af3*"]
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+target-version = "py310"
+lint.select = ["E", "F", "W", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"**/__init__.py" = ["F401"]
