@@ -9,6 +9,8 @@ A differentiable spin-label operator predicts distance distributions from each c
 During sampling, guidance adjusts the ensemble's shared pair representation to fit the measured
 DEER distributions. The pretrained model weights remain fixed.
 
+![Ensemble DEER guidance](docs/method.png)
+
 ### Installation
 
 Install the predictor you want to use, including its checkpoints, following its installation
