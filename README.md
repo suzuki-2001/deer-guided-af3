@@ -11,7 +11,7 @@ DEER distributions. The pretrained model weights remain fixed.
 
 ![Ensemble DEER guidance](docs/method.png)
 
-### Installation
+## Installation
 
 Install the predictor you want to use, including its checkpoints, following its installation
 instructions above. The predictors require separate environments; the versions used in our runs
@@ -28,7 +28,7 @@ pip install -e .
 Building spin-label clouds also requires chiLife. Install it in a compatible environment with
 `pip install -e ".[clouds]"`; the recorded Protenix environment supports this step.
 
-### Usage
+## Usage
 
 Start with an unguided prediction, build the spin-label clouds on that structure, then sample
 with DEER guidance. For the included PfMATE example:
@@ -67,7 +67,7 @@ noise, so comparisons between diffusion seeds retain the same trunk output.
 Both prediction commands write `model_0.pdb`, `model_1.pdb`, and so on to `--out`.
 The guided run also writes `guidance.json` with the settings, retained pairs and fit history.
 
-#### Distance distributions
+### Distance distributions
 
 The restraint CSV has no header. Each row contains two residue sites followed by 99 values of
 P(r), at distances 1 through 99 Å. Sites are residue numbers such as `134`, or chain-qualified
@@ -79,7 +79,7 @@ Values must be finite and non-negative, with positive total mass; they are norma
 Self-pairs, duplicate pairs and rows with the wrong number of bins are rejected. Blank lines and
 lines beginning with `#` are ignored. [deer.csv](example/pfmate/deer.csv) is a complete example.
 
-### Acknowledgements
+## Acknowledgements
 
 - **chiLife** — Tessmer & Stoll 2023, *PLOS Computational Biology*. [doi.org/10.1371/journal.pcbi.1010834](https://doi.org/10.1371/journal.pcbi.1010834). The R1M rotamer library and the spin-label model this operator differentiates. GPL-3.0, which this repository follows.
 - **Protenix** — ByteDance AML AI4Science Team 2025, *bioRxiv*. [doi.org/10.1101/2025.01.08.631967](https://doi.org/10.1101/2025.01.08.631967).
